@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd"> -->
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>uname</param-name>
+    <param-value>Kgisl</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>Servlet1</servlet-name>
+    <servlet-class>com.kgisl.webapp1.Hello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet1</servlet-name>
+    <url-pattern>/enroll</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Servlet2</servlet-name>
+    <servlet-class>com.kgisl.webapp1.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet2</servlet-name>
+    <url-pattern>/serv</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Servlet3</servlet-name>
+    <servlet-class>com.kgisl.webapp1.Servlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet3</servlet-name>
+    <url-pattern>/serv3</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Servlet4</servlet-name>
+    <servlet-class>com.kgisl.webapp1.Servlet2</servlet-class>
+      <init-param>  
+      <param-name>dept</param-name>  
+      <param-value>IT</param-value>  
+    </init-param>  
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet4</servlet-name>
+    <url-pattern>/serv4</url-pattern>
+  </servlet-mapping>
+</web-app>

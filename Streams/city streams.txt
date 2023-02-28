@@ -1,0 +1,307 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class CityTest {
+    static List<City>Worldcities = new ArrayList<City>();
+    public static void loadCities() throws IOException
+    {
+        String fileName = "worldcity.csv";
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while((line = br.readLine()) != null)
+            {
+                String cit[] = line.split(",");
+                dataCleaning(cit);
+            }
+        } 
+    }
+    public static void dataCleaning(String[] cities)
+    {
+        String city,city_ascii,country,iso2,iso3,capital,adminName;
+        double latitude,longitude;
+        long population,populationId;
+        city = cities[0] ;
+        city_ascii = cities[1] ;
+        latitude = Double.parseDouble(cities[2] );
+        longitude = Double.parseDouble(cities[3] );
+        country =  cities[4] ;
+        iso2 = cities[5] ;
+        iso3 = cities[6] ;
+        adminName = cities[7] ;
+        capital = cities[8] ;
+        population = Long.parseLong(cities[9] );
+        populationId = Long.parseLong(cities[10] );
+
+        City c = new City(city, city_ascii, latitude, longitude, country, iso2, iso3, adminName, capital, population, populationId);
+        Worldcities.add(c);
+    }
+    public static void printCities()
+    {
+        Worldcities.forEach(System.out::println);
+    }
+    
+    public static void uniqueCity()
+    {
+        Worldcities.stream().map(City::getCity).distinct().forEach(System.out::println);
+    }
+
+    public static void noOfUniqueCities()
+    {
+        long n = Worldcities.stream().map(City::getCity).distinct().count();
+        System.out.println(n);
+    }
+
+    public static void CountryWiseCityCount()
+    {
+       Map<String,Long> CityCountMap =  Worldcities.stream().collect(Collectors.groupingBy(City::getCountry, Collectors.counting()));
+       CityCountMap.entrySet().stream().forEach(e -> System.out.println(e.getKey()+" "+e.getValue()));
+    }
+
+    public static void cityInSameLat()
+    {
+        Map<Double,List<City>> citySameLat =  Worldcities.stream().map(c -> { c.setLat(Math.round(c.getLat())); return c;}).collect(Collectors.groupingBy(City::getLat));
+        for(Map.Entry<Double,List<City>> entry: citySameLat.entrySet()){
+            System.out.println("Latitude : "+entry.getKey()+"\nCities  : ");
+            entry.getValue().stream().forEach(c -> System.out.println("\t"+c.getCity()));
+        }
+    }
+
+    public static void cityInSameLng()
+    {
+        Map<Double,List<City>> cityInLng = Worldcities.stream().map(c -> { c.setLng(Math.round(c.getLng())); return c;}).collect(Collectors.groupingBy(City::getLng));
+        for(Map.Entry<Double,List<City>> entry : cityInLng.entrySet())
+        {
+            System.out.println("Longitude : "+entry.getKey());
+            System.out.println("Cites : ");
+            entry.getValue().stream().forEach(e -> System.out.println("\t"+e.getCity()));
+        }
+    }
+
+    public static void cityInSameLatOrLng()
+    {
+        System.out.println("Cities in same latitude ");
+        cityInSameLat();
+        System.out.println("Cities in same longitude ");
+        cityInSameLng();
+    }
+
+    public static void orderCitiesByPopulation()
+    {
+        List<City> orderCity = Worldcities.stream().sorted(Comparator.comparingLong(City::getPopulation)).collect(Collectors.toList());
+        orderCity.stream().forEach(c -> System.out.println(c.getCity()));
+    }
+
+    public static void countryWiseStateCount()
+    {
+        //Map<String,Long> stateCount = Worldcities.stream().collect(Collectors.groupingBy(City::getAdmin_name,Collectors.counting()));
+        //Map<String,Map<String,Long>> stateCount = Worldcities.stream().collect(Collectors.groupingBy(City::getCountry),collect(Collectors.groupingBy(City::getAdmin_name,Collectors.counting())));
+        Map<String,Map<String,Long>> stateCount = Worldcities.stream().collect(Collectors.groupingBy(City::getCountry, Collectors.groupingBy(City::getAdmin_name, Collectors.counting())));
+        //stateCount.entrySet().stream().forEach(e -> System.out.println(e.getKey()+" "+e.getValue()));
+        System.out.println("Country wise state count ");
+        stateCount.forEach((country, stateAndItscounts) -> System.out.println(" - "+country+" : "+stateAndItscounts));
+                // stateCount.forEach((country, count) -> {
+        //    // System.out.println(country+" : ");
+        //     stateCount.forEach((state, counts) -> System.out.println(" - "+state+" : "+counts));
+        // });
+    }
+
+    public static void stateWiseCityCount()
+    {
+        Map<String,Map<String,Long>> cityCount = Worldcities.stream().collect(Collectors.groupingBy(City::getAdmin_name,Collectors.groupingBy(City::getCity,Collectors.counting())));
+        System.out.println("State wise city count : ");
+        cityCount.forEach((state, cityAndItsCount) -> System.out.println(" - "+state+" : "+cityAndItsCount));
+    }
+
+    public static void lessPopulatedCity()
+    {
+        Worldcities.stream().min(Comparator.comparing(City::getPopulation)).ifPresent(s ->  System.out.print(s.getCity()+" "+s.getPopulation()));
+    }
+
+    public static void searchByCity(String searchCity)
+    {
+        List<City> searchedCity = Worldcities.stream().filter(s -> s.getCity().equalsIgnoreCase(searchCity)).collect(Collectors.toList());
+        searchedCity.forEach(System.out::println);
+    }
+
+    public static void listStatesByCountry()
+    {
+        Map<String,List<String>> statesByCountry = Worldcities.stream().collect(Collectors.groupingBy(City::getCountry,Collectors.mapping(City::getAdmin_name,Collectors.toList())));
+        for(Map.Entry<String,List<String>> entry: statesByCountry.entrySet())
+        {
+            System.out.println("------Country : "+entry.getKey()+"--------------");
+            entry.getValue().stream().forEach(s -> System.out.print(s+" "));
+            System.out.println("\n---------------------------------");
+        }
+    }
+
+    public static void selectedCountryAvgPopulation(String country)
+    {
+        double avg = Worldcities.stream().filter(s -> s.getCountry().equalsIgnoreCase(country)).mapToDouble(City::getPopulation).average().getAsDouble();
+        System.out.println(country+" : "+avg);
+    }
+
+    public static void selectedCountrytotalPopulation(String country)
+    {
+        long tot = Worldcities.stream().filter(s -> s.getCountry().equalsIgnoreCase(country)).mapToLong(City::getPopulation).sum();
+        System.out.println(country+" : "+tot);
+    }
+
+    public static void selectedCountryOrderByPopulation(String country)
+    {
+        Map<String,Long>oderByPop = Worldcities.stream().filter(s -> s.getCountry().equalsIgnoreCase(country)).sorted(Comparator.comparing(City::getPopulation)).collect(Collectors.groupingBy(s -> s.getCity()));
+    }
+    public static void main(String[] args) throws IOException {
+        loadCities();
+        //printCities();
+        //uniqueCity();
+        //noOfUniqueCities();
+        //CountryWiseCityCount();
+        //cityInSameLat();
+        //cityInSameLng();
+        //cityInSameLatOrLng();
+        //orderCitiesByPopulation();
+        //countryWiseStateCount();
+        //stateWiseCityCount();
+        //lessPopulatedCity();
+        //searchByCity("Chennai");
+        //listStatesByCountry();
+
+        //selectedCountryAvgPopulation("India");
+        //selectedCountrytotalPopulation("India");
+        selectedCountryOrderByPopulation("India");
+    }
+}
+//-------------------------------------------------------
+
+
+public class City{
+    private String city;
+    private String city_ascii;
+    private double lat;
+    private double lng;
+    private String country;
+    private String iso2;
+    private String iso3;
+    private String admin_name;
+    private String capital;
+    private long population;
+    private long id;
+    
+    public City(String city, String city_ascii, double lat, double lng, String country, String iso2, String iso3,
+            String admin_name, String capital, long population, long id) {
+        this.city = city;
+        this.city_ascii = city_ascii;
+        this.lat = lat;
+        this.lng = lng;
+        this.country = country;
+        this.iso2 = iso2;
+        this.iso3 = iso3;
+        this.admin_name = admin_name;
+        this.capital = capital;
+        this.population = population;
+        this.id = id;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCity_ascii() {
+        return city_ascii;
+    }
+
+    public void setCity_ascii(String city_ascii) {
+        this.city_ascii = city_ascii;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getIso2() {
+        return iso2;
+    }
+
+    public void setIso2(String iso2) {
+        this.iso2 = iso2;
+    }
+
+    public String getIso3() {
+        return iso3;
+    }
+
+    public void setIso3(String iso3) {
+        this.iso3 = iso3;
+    }
+
+    public String getAdmin_name() {
+        return admin_name;
+    }
+
+    public void setAdmin_name(String admin_name) {
+        this.admin_name = admin_name;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    public long getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(long population) {
+        this.population = population;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "City [city=" + city + ", city_ascii=" + city_ascii + ", lat=" + lat + ", lng=" + lng + ", country="
+                + country + ", iso2=" + iso2 + ", iso3=" + iso3 + ", admin_name=" + admin_name + ", capital=" + capital
+                + ", population=" + population + ", id=" + id + "]";
+    }    
+}

@@ -1,0 +1,17 @@
+Unique cities
+Total no of cities
+Country wise city count
+Cities in same lat
+Cities in same lng
+Cities in same lat / lng 
+Order cities by population
+Country wise State count
+State wise city count
+Less populated city
+Search my city
+List the states by country
+Search by city and display nearer city
+Selected country avg population
+Selected country total population
+Give country input then order cities by population
+List Unique capital

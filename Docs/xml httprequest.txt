@@ -1,0 +1,55 @@
+jsp              java          db
+jstl - form
+html
+timeleaf/spring
+
+common format 
+xml - tags must be proper , version should be correct
+json
+gson - google
+jackson - oracle
+now available open jdk (jsonb)
+
+jsp -> javascript object
+
+to be processed by server
+$
+<% %> 
+
+json to js object - json.parse();
+js object to json - json.stringify();
+
+js engine - interface, classes , xmlhtmlhttprequest (browser package)
+
+
+xmlhtmlhttprequest
+property:
+onload
+readyState
+0: request not initialized
+1: server connection established
+2: request received
+3: processing request
+4: request finished and response is ready
+onreadystatechange
+responseText
+responseXML
+status
+200: "OK"
+403: "Forbidden"
+404: "Not Found"
+1xx- information
+2xx- successful
+3xx: Redirection
+4xx: Client Error
+5xx: Server Error
+
+js - synchronized by default
+sync - 1 req or 1 resp at a time
+async - parallel processing 
+
+request
+http method, url, data (text/xml), datatype (format denoting), request header
+
+response 
+response body (data), datatype, status code (1xx,2xx,3xx,4xx,5xx), status text, response header

@@ -1,0 +1,32 @@
+, - csv
+| 
+  - tsv
+;
+$
+
+normal text file
+delimiter file
+spreadsheet- workbook
+  needs special software to open
+  if edited can't know
+dbms
+rdbms
+
+statement - used only once DDL statements like CREATE, ALTER, DROP 
+
+prepared statement - used multiple times for dynamic insert
+
+callable statement - used for stored procedure
+
+execute query - returns resultset(table) used for only select statement
+
+execute update - returns int value(no of rows update) used for non select statement
+
+execute - returns boolean value (whether result set is returned or not) used for any statement.
+
+
+mvn archetype:generate -DgroupId=com.kgisl.jdbcdemo -DartifactId=jdbcdemo -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false  
+
+
+java -cp target\jdbcdemo-1.0-SNAPSHOT.jar Insert
+

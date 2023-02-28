@@ -1,0 +1,53 @@
+<!DOCTYPE html> <!--tells browser to render html 5 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- every os charset -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--maintains resolution -->
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h2>User Information</h2>
+    <form action="welcome.html" method="get" onsubmit="we()">
+        <label >User name : </label>
+        <input type="text" name="username"><br>
+        <label>Password : </label>
+        <input type="password" name="password"><br>
+        <label>Email id : </label>
+        <input type="email" name="emailid"><br>
+        <label>Address : </label>
+        <textarea rows="5" cols="30" name="address"></textarea><br>
+        <label>Phone number : </label>
+        <input type="tel" name="phoneno"><br>
+        <label>Date of Birth : </label>
+        <input type="date" name="dob"><br>
+        <label>Gender</label>
+        <input type="radio" name="gender" value="male">
+        <label>Male</label>
+        <input type="radio" name="gender" value="female">
+        <label>Female</label><br>
+        <label>Highest Education Qualification</label>
+        <select name="qualification">
+            <option value="SSLC" >SSLC</option>
+            <option value="HSC">HSC</option>
+            <option value="UG">UG</option>
+            <option value="PG">PG</option>
+            <option value="Phd">Phd</option>
+        </select><br>
+        <label>Aathar Number : </label>
+        <input type="number" name="aathar"><br>
+        <label>Proof Document : </label>
+        <input type="file" name="proof"><br>
+      <!--  <label>Recent Photo : </label>
+        <input type="image" name="photo"><br> -->
+        <label>Linked In url : </label>
+        <input type="url" name="url"><br>
+        <input type="checkbox" name="terms">
+        <label>I Agree to terms and conditions</label><br>
+        <input type="submit" name="submit">
+        <input type="reset" name="reset">
+    </form>
+    
+</body>
+</html>

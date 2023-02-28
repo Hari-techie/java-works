@@ -1,0 +1,132 @@
+java - standalone app(gui: calc,cui : add.java) & enterprise app(web app, distributed app)
+
+jse - jdbc
+jee - jsp servlets
+jme - mobile app
+
+web server:
+may be in local machine
+lan server
+cloud
+
+web server - to run web application we need special software
+web container - manage and executes servlets and jsps
+servlet container - catalina
+jsp container - jasper
+
+Web technologies
+web based distributed app (client is fixed and don't have jvm) - cgi, servlets, jsps, php, cf 
+remote based distributed app (client may be java prog, applet and have jvm) - socket prog, jmi, corbra, ejbs, webservice
+
+webserver --> web container (jsp and servlet)
+
+Web application as a program that resides on a Web server and produces dynamically or static created pages in a hypertext markup language (most commonly HTML) in response to a user’s request. 
+A web application is a collection of web components such as servlets, JSPs, HTML pages, and other resources. It is deployed in a web container, which provides the environment for the application to run. 
+A web application can be deployed in a web container as a WAR (Web Application Archive) file, which is a collection of files and directories packaged in a compressed format.
+A web container is a program that manages the components of a Web application, in particular JSP pages and Java Servlets. A Web container provides a number of services, such as
+
+Life-Cycle management : Web container provide the process of starting up and shutting down a component.
+Concurrency : Provide the capability to process more than one action at a time.
+Security : Provide the restricted access to components, such as username & password protection.
+Portability : Access anywhere, taking very less resource.
+
+Apache Tomcat & GlassFish Server are the example of a Web container, — an open-source implementation of the J2EE Java Servlet and JavaServer Pages (JSP) specifications. 
+A specification is a document that describes all the details of a technology. 
+Typically, a Web container also functions as a Web server, providing basic HTTP (Hypertext Transfer Protocol) support for users who want to access information on the site.
+
+HTTP Requests:
+The Request-line
+The analysis of source IP address, proxy and port
+The analysis of destination IP address, protocol, port and host
+The Requested URI (Uniform Resource Identifier)
+The Request method and Content
+The User-Agent header
+The Connection control header
+The Cache control header
+
+Get:
+limited amount of data can be sent because data is sent in header.
+not secured because data is exposed in URL bar.
+can be bookmarked.
+idempotent means second request will be ignored until response of first request is delivered
+
+Post:
+large amount of data can be sent because data is sent in body.
+secured 
+cannot be bookmarked
+non-idempotent
+
+maven life cycle
+validate - validate the project is correct and all necessary information is available
+
+compile - compile the source code of the project
+
+test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+
+package - take the compiled code and package it in its distributable format, such as a JAR.
+
+verify - run any checks on results of integration tests to ensure quality criteria are met
+
+install - install the package into the local repository, for use as a dependency in other projects locally
+
+deploy -  done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+tomcat:
+catalina - Apache Tomcat's servlet container
+coyote - HTTP Connector component
+listens for incoming connections on configured TCP ports on the server and forwards requests to the Tomcat Engine for processing and returning a response to the requesting client.
+jasper - JavaServer Pages Engine. Jasper parses JSP files compiling them into Java code as servlets to be handled by Catalina. At runtime, Jasper detects changes to JSP files and recompiles them
+
+
+mvn tomcat7:run
+creates empty container
+loads servlet context
+creates class for each servlet
+creates servlet config for each class
+
+SERVLET CONTEXT - GLOBAL TO ENTIRE WEB - CREATED WHEN APP EVEN START
+SERVLET CONFIG - INDIVIDUAL SERVLET PAGE
+
+SERVLET LIFE CYCLE
+SERVICE - REQUEST HANDLED
+
+contexrt
+web server
+
+filter/interceptor:
+
+event - 
+Event is occurrence of something, in web application world an event can be 
+initialization of application, 
+destroying an application, 
+request from client, 
+creating/destroying a session, 
+attribute modification in session
+
+why listeners
+ Servlet API provides different types of Listener interfaces that we can implement and configure in web.xml to process something when a particular event occurs.
+ For example, in above scenario we can create a Listener for the application startup event to read context init parameters and
+ create a database connection and set it to context attribute for use by other resources.
+
+RequestListeners :
+These Listen the events related to request.
+There are 2 types of RequestListeners.
+ServletRequestListener
+ServletRequestAttributeListener
+
+Session Listeners :
+Listens the events related to Sessions .
+There are 4 types of Session Listeners.
+HttpSessionListener
+HttpSessionAttributeListener
+HttpSessionBindingListener
+HttpSessionActivationListener
+
+ContextListener :
+Listens the events related to context.
+There are 2 types of context Listeners.
+ServletContextListener
+ServletContextAttributeListener
+
+mvn archetype:generate -DgroupId=com.kgisl.webapp8 -DartifactId=webapp8 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false

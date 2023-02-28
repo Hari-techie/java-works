@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+
+   <script>
+    var name = localStorage.getItem("username");
+    var password = localStorage.getItem("password");
+    var email = localStorage.getItem("emailid");
+    var address = localStorage.getItem("address");
+    var phone = localStorage.getItem("phoneno");
+    var dob = localStorage.getItem("dob");
+    var gender = localStorage.getItem("gender");
+    var qualifaction = localStorage.getItem("qualification");
+    var aathar = localStorage.getItem("aathar");
+    var url = localStorage.getItem("url");
+    
+     document.write("Name : "+name+"<br>"+"Password : "+password+"<br>"+"Email : "+email+"<br>"+"address : "+address+"<br>"+"Phone : "+phone+"<br>"+"Dob : "+dob
+      +"<br>"+"Gender : "+gender+"<br>"+"qualiication : "+qualifaction+"<br>"+"Aathar : "+aathar+"<br>"+"url : "+url);
+   </script>
+</body>
+</html>

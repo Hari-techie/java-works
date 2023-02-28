@@ -1,0 +1,27 @@
+1. state and behaviour (1)
+2. properties
+3. methods (2)
+4. data hiding (3)
+5. class (4)
+6. interface class implements
+7. interface (5)
+8. API (6)// package
+9. application program interface 7
+10. properties 
+11. static variable 8 
+12. method 9
+13. local variable 
+14. int,short,long,float,double,byte,boolean,char 10
+15. Character 
+16. array 11
+17. relational operator 12
+18. i=11, n=0 13
+19. i=11, n=1 14
+20. ! 15
+21. == 16
+22. ternary operation.If first condition return true it assigns value1 to result else it assigns value2 to result.
+23. expressions/logic 18
+24. for loop, while loop,do while loop,switch statement 19
+25. numerical // compound
+26. semi colon 20
+27. parenthesis 21

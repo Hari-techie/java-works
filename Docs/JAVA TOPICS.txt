@@ -1,0 +1,22 @@
+Exception handling
+mutable and immutable
+object cloning
+OOPs
+Call by Value and Call by Reference
+class method vs instance method vs static method
+method chaining
+non access modifiers
+super, this keyword
+association vs aggregation vs composition
+enum
+inner classes
+date & time
+equals vs hascode vs tostring
+comparable and comparator
+hashmap vs hashtable vs hashset
+interface
+marker interface
+process vs thread vs task vs function
+Concurrency, Parallelism, Threads, Processes, Async, and Sync
+Thread
+serialization and deserialization

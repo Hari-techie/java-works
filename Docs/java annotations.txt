@@ -1,0 +1,19 @@
+Annotations in Java provide additional information to the compiler and JVM.
+An annotation is a tag representing metadata about classes, interfaces, variables, methods, or fields. 
+Annotations do not impact the execution of the code that they annotate.
+
+@Override
+@SuppressWarnings
+@Deprecated
+
+@Target(ElementType.METHOD)
+
+type - class above
+method - method above
+field - variable above
+
+@Retention(RetentionPolicy.SOURCE)
+
+source - source code
+class - .class file
+runtime - jvm

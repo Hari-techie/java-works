@@ -1,0 +1,4 @@
+ToyName,CustomerName,PurchaseDate
+Tom,Raj,22/1/2022
+Train,Loki,12/4/2022
+Cat,Kumar,2/2/2022

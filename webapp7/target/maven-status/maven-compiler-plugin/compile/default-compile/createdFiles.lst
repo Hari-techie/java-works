@@ -1,0 +1,5 @@
+com\kgisl\webapp7\Book.class
+com\kgisl\webapp7\ControllerServlet.class
+com\kgisl\webapp7\BookServlet.class
+com\kgisl\webapp7\GsonServlet.class
+com\kgisl\webapp7\BookDao.class

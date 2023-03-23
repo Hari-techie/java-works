@@ -1,0 +1,11 @@
+com\kgisl\springxml1\config\one.class
+com\kgisl\springxml1\controller\HomeController.class
+com\kgisl\springxml1\dao\BookDAO.class
+com\kgisl\springxml1\controller\UserController.class
+com\kgisl\springxml1\dao\BookDAOjdbc.class
+com\kgisl\springxml1\dao\BookMapper.class
+com\kgisl\springxml1\model\User.class
+com\kgisl\springxml1\config\SpringJdbcConfig.class
+com\kgisl\springxml1\model\Book.class
+com\kgisl\springxml1\controller\ModelController.class
+com\kgisl\springxml1\controller\BookController.class

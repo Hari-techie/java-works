@@ -1,0 +1,5 @@
+com\kgisl\springxml2\Controller\CompanyController.class
+com\kgisl\springxml2\Controller\Test.class
+com\kgisl\springxml2\model\Employee.class
+com\kgisl\springxml2\model\Company.class
+com\kgisl\springxml2\Config\EmployeeConfig.class

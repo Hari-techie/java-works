@@ -1,0 +1,6 @@
+com\kgisl\SpringJdbcTemplate\BookMapper.class
+com\kgisl\SpringJdbcTemplate\SpringJdbcConfig.class
+com\kgisl\SpringJdbcTemplate\Book.class
+com\kgisl\SpringJdbcTemplate\BookDao.class
+com\kgisl\SpringJdbcTemplate\JdbcController.class
+com\kgisl\SpringJdbcTemplate\BookDaoImpl.class

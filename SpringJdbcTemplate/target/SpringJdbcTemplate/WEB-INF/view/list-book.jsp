@@ -25,6 +25,7 @@
                         <div class="panel-body">
                             <table class="table table-striped table-bordered">
                                 <tr>
+                                    <th>Id</th>
                                     <th>Title</th>
                                     <th>Author</th>
                                     <th>Price</th>
@@ -36,15 +37,19 @@
 
                                     <!-- construct an "update" link with Book id -->
                                     <c:url var="updateLink" value="/updateForm">
-                                        <c:param name="BookId" value="${tempBook.id}" />
+                                        <!-- Mistake to be noted-->
+                                        <c:param name="bookId" value="${tempBook.id}" />
+                                        
                                     </c:url>
 
                                     <!-- construct an "delete" link with Book id -->
-                                    <c:url var="deleteLink" value="/delete">
-                                        <c:param name="BookId" value="${tempBook.id}" />
+                                    <c:url var="deleteLink" value="/delete"> <!-- Mistake to be noted-->
+                                         <c:param name="bookId" value="${tempBook.id}" />
+                                        
                                     </c:url>
 
                                     <tr>
+                                        <td>${tempBook.id}</td>
                                         <td>${tempBook.title}</td>
                                         <td>${tempBook.author}</td>
                                         <td>${tempBook.price}</td>

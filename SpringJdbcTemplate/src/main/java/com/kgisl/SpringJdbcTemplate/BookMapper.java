@@ -9,6 +9,7 @@ class BookMapper implements RowMapper<Book> {
     
     public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
         Book book = new Book();
+        book.setId(rs.getInt("id"));   // id to be set here to reflect in front
         book.setTitle(rs.getString("title"));
         book.setAuthor(rs.getString("author"));
         book.setPrice(rs.getFloat("price"));

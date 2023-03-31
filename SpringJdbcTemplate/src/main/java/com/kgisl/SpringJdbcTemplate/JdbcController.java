@@ -38,22 +38,43 @@ public class JdbcController {
     }
 
     @PostMapping("/saveBook")
-    public String saveCustomer(@ModelAttribute("book") Book book) {
-        bookDaoImpl.insertBook(book);
+    public String saveBook(@ModelAttribute("Book") Book book) {
+        System.out.println("save book");
+        if (book.getId() == 0) {
+            bookDaoImpl.insertBook(book);
+        } else {
+            bookDaoImpl.updateBook(book);
+        }
         return "redirect:/list";
     }
 
-    @GetMapping("/updateForm")
-    public String showFormForUpdate(@RequestParam("BookId") int theId,
-            Model theModel) {
-        Book theBook = bookDaoImpl.getBookById(theId);
+    // @PostMapping("/saveBook")
+    // public ResponseEntity<Book> saveBook(@ModelAttribute("book") Book book) {
+    // try {
+    // if (book.getId() == 0) {
+    // bookDaoImpl.insertBook(book);
+    // } else {
+    // bookDaoImpl.updateBook(book);
+    // }
+    // return ResponseEntity.ok(book);
+    // } catch (Exception e) {
+    // return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    // }
+    // }
 
-        theModel.addAttribute("Book", theBook);
+    @GetMapping("/updateForm")
+    public String showFormForUpdate(@RequestParam("bookId") int theId, Model theModel) {
+        System.out.println("update " + theId);
+        Book Book = bookDaoImpl.getBookById(theId);
+        System.out.println(Book);
+        theModel.addAttribute("Book", Book);
         return "book-form";
     }
 
     @GetMapping("/delete")
-    public String deleteBook(@RequestParam("BookId") int theId, Model theModel) {
+    public String deleteBook(@RequestParam("bookId") int theId, Model theModel) {
+        System.out.println(theId);
+
         Book book = new Book();
         book.setId(theId);
         bookDaoImpl.deleteBook(book);

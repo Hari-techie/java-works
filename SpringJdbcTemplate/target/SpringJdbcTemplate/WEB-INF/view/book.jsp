@@ -31,8 +31,8 @@
                     <td>${book.author}</td>
                     <td>${book.price}</td>
                     <td>${book.qty}</td>
-                    <td><a href="<c:url value='/book/editbook/${book.id}'/>">Edit</a></td>
-                    <td><a href="<c:url value='/book/deletebook/${book.id}'/>">Delete</a></td>
+                    <td><a href="<c:url value='/editbook/${book.id}'/>">Edit</a></td>
+                    <td><a href="<c:url value='/deletebook/${book.id}'/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

@@ -18,9 +18,7 @@
                                 <div class="panel-title">Add Book</div>
                             </div>
                             <div class="panel-body">
-                                <form:form action="saveBook" cssClass="form-horizontal" method="post"
-                                    modelAttribute="Book">
-
+                                <form:form method="post"    action="saveBook" modelAttribute="Book">
                                     <!-- need to associate this data with Book id -->
                                     <form:hidden path="id" />
 
@@ -56,7 +54,7 @@
                                     <div class="form-group">
                                         <!-- Button -->
                                         <div class="col-md-offset-3 col-md-9">
-                                            <form:button cssClass="btn btn-primary">Submit</form:button>
+                                            <button type="submit" cssClass="btn btn-primary">Submit</button>
                                         </div>
                                     </div>
 

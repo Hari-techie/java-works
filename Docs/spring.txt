@@ -1,0 +1,84 @@
+blocking vs non blocking 
+servlet is blocking (synchronous)
+
+spring dispatcherservlet
+front controller
+controller
+view template
+
+features:
+* IoC Container(di - dependency injection)
+During runtime, an object needs to be referenced implicitly and the task is taken up by IoC container.
+bean node + meta data = ready to use object
+
+* Data Access Framework
+files , db - rdbms , no sql , rest api
+
+* Spring MVC Framework
+like dao pattern
+This framework feature helps developers in building web applications on the basis of MVC architecture.
+
+
+* Transaction Management
+begin
+insert 1
+2
+3
+4
+end 
+all in 1 block 
+if any fail we rollback
+
+
+* Spring Web Service
+
+* JDBC Abstraction Layer
+
+* Spring TestContext Framework
+
+A Spring bean is a reusable and managed object instance that is created, configured, and assembled by the Spring IoC container.
+
+Stereotype
+component
+Controller - servlet
+Service - dao daoimpl
+Repository - jdbc connection
+
+In a Spring MVC application, there are three main types of contexts: 
+WebApplicationContext: This context is specific to the web application and is created using the ContextLoaderListener.
+The WebApplicationContext contains all the beans required for processing web requests, such as controllers, view resolvers, and handler mappings. 
+
+DispatcherServlet context: Each instance of the DispatcherServlet has its own context, which inherits from the WebApplicationContext. 
+This context contains additional beans specific to the servlet, such as interceptors and handler adapters. 
+
+RootApplicationContext: This context is shared across multiple servlet contexts and is usually used for holding common beans such as data access objects and service classes. 
+It is created when the servlet container starts up and is loaded by the ContextLoaderListener. 
+To summarize, while WebApplicationContext and DispatcherServlet context are specific to the web application, RootApplicationContext is shared across multiple servlet contexts.
+
+web container - html + java , servlet container - tomcat server's catalina (only java), spring container, spring context ,spring ioc container
+
+
+	                         ServletContextListener	              							ContextLoaderListener
+Purpose	             To handle Servlet context events, such as when the application starts or stops	       To load a Spring application context when the application starts
+Java Interface	           javax.servlet.ServletContextListener              					org.springframework.web.context.ContextLoaderListener
+Events handled	   		contextInitialized, contextDestroyed               				contextInitialized
+
+
+order of execution
+web.xml
+@config files one by one - note: no particular order for loading files
+
+
+datasource
+connection pooling
+Spring + Web MVC: dispatcher-servlet.xml vs. applicationContext.xml
+root web application , web application , dispatcher servlet context, spring bean, spring xml config
+model, model map, model and view , InternalResourceViewResolver , XmlViewResolver, ResourceBundleViewResolver
+spring jdbc template
+spring annotations
+bean, context:component-scan
+RowMapper, JdbcTemplate, DataSource, DriverManagerDataSource
+@Controller
+@RequestMapping
+@ModelAttribute
+@RequestMapping(method = RequestMethod.GET)

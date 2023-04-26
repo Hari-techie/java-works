@@ -129,4 +129,4 @@ There are 2 types of context Listeners.
 ServletContextListener
 ServletContextAttributeListener
 
-mvn archetype:generate -DgroupId=com.kgisl.webapp8 -DartifactId=webapp8 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.kgisl.AngularCrud  -DartifactId=AngularCrud -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false

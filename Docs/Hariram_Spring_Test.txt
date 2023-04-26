@@ -1,0 +1,84 @@
+What is Spring Framework and what are its advantages?
+Spring framework is a popular java framework which is used to build web application. It uses servlet api. Every request is sent to the front controller and then it delegates the request to its corresponding controller and then it returns model to the view. 
+The advantages are  IOC and transaction management
+
+What is Inversion of Control (IoC) in Spring Framework?
+IoC is the feature of spring in which object creation's control is handled by only one main class.
+
+What is Dependency Injection (DI) in Spring Framework?
+It is the feature of spring in which object creation's control is handled by one main class.
+Dependency injection is done by using three methods:
+setter injection
+contructor inhection
+field injection
+
+What is a Bean in Spring Framework?
+Bean is a reusable component which is configured and managed by IoC container.
+
+What are the different scopes of Beans in Spring Framework?
+singleton
+prototype
+persistent
+global
+
+What is a BeanFactory in Spring Framework?
+It is collection of beans in spring.
+
+What is an ApplicationContext in Spring Framework?
+
+What is the difference between BeanFactory and ApplicationContext in Spring Framework?
+
+What is Spring MVC and how does it work?
+Every request is sent to the front controller first and then it delegates request to corresponding controller and then it sends model to corresponding view.
+
+What is the DispatcherServlet in Spring MVC?
+DispatcherServlet is the front controller in springmvc which handles all the request and process the request. In project it is denoted by -servlet.xml
+
+What is a Controller in Spring MVC?
+Controller handles the request and process the request and then returns model to view. It is like servlet class. 
+
+What is a View in Spring MVC?
+View is used to display the model. It is basically a Jsp page/ html page.
+
+What is a Model in Spring MVC?
+Model is a container is used to store values in it.
+
+What is a ViewResolver in Spring MVC?
+It is used to identify the correct path as prefix and suffix as jsp in InternalViewResolver.
+
+What is the difference between @Component, @Service, and @Repository annotations in Spring Framework?
+@Component is used in class where we need to create bean but we don't know to identify it as a controller or service or repository 
+@Service is used in class where business logic is applied
+@Repository is used in class where db is used
+
+What is the purpose of @Autowired annotation in Spring Framework?
+It automatically establishes the connection between the beans and creates link.
+
+What is the purpose of @RequestMapping annotation in Spring MVC?
+It is used to map the request according to the value given in action and url.
+
+What is the purpose of @PathVariable annotation in Spring MVC?
+It is used to denote the path of the variable
+
+What is the purpose of @RequestParam annotation in Spring MVC?
+
+What is the purpose of @ResponseBody annotation in Spring MVC?
+
+What is the purpose of @Valid annotation in Spring MVC?
+It is used to validate data based on given conditions
+
+What is the purpose of @Configuration annotation in Spring Framework?
+It is used to configure database and it runs after web initializer.
+
+What is the purpose of @Bean annotation in Spring Framework?
+It is used to create bean automatically when called.
+
+What is the difference between @Configuration and @Component annotations in Spring Framework?
+@Configuration is used to configure database and it runs after web initializer.
+@Component is a stereotype annotation. It is is used in class where we need to create bean but we don't know to identify it as a controller or service or repository 
+
+How many ways can Dependency Injection be done in Spring framework ?
+3 ways.
+setter injection
+contructor inhection
+field injection

@@ -20,3 +20,10 @@ process vs thread vs task vs function
 Concurrency, Parallelism, Threads, Processes, Async, and Sync
 Thread
 serialization and deserialization
+
+BigDecimal
+Iterator
+Truncation
+LocalTime
+collection 
+Enum 

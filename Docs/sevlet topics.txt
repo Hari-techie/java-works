@@ -1,0 +1,17 @@
+html 5 features
+Browser APIs
+BOM vs DOM
+HTML locators
+HTML / JavaScript page life cycle
+JavaScript array methods
+CRUD operations in JavaScript String array methods
+CRUD operations in JavaScript Object array methods
+JavaScript Arrow functions
+Use JavaScript Arrow functions for business scenarios
+XMLHttpRequst
+Ajax
+Fetch Api
+Callback, Promise, Async and await
+Nodejs
+Javascript DOM
+CRUD Operations in Servlet JSON

@@ -53,3 +53,15 @@ http method, url, data (text/xml), datatype (format denoting), request header
 
 response 
 response body (data), datatype, status code (1xx,2xx,3xx,4xx,5xx), status text, response header
+
+jquery library (control validation, color)
+js framework
+ajax technique callback
+fetch api js promise
+xmlhttprequest api
+
+webapp runs on webserver
+servlet webtechnology entire page rewrite
+xml specific content write
+ajax
+fetch
